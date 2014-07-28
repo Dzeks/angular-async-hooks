@@ -125,7 +125,6 @@
         deferred.resolve();
       })
       .catch(function(error) {
-        console.error(error);
         deferred.reject(error);
       })
 
