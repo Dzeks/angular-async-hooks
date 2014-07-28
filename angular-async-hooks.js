@@ -77,7 +77,7 @@
         deferred.resolve();
       })
       .catch(function(error) {
-        deferred.reject();
+        deferred.reject(error);
       })
 
       return deferred.promise;
@@ -126,7 +126,7 @@
       })
       .catch(function(error) {
         console.error(error);
-        deferred.reject();
+        deferred.reject(error);
       })
 
       return deferred.promise;
