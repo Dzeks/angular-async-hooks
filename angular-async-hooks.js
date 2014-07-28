@@ -142,3 +142,5 @@
     return m;
 
   });
+
+})(window, window.angular);
