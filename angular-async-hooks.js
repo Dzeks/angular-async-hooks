@@ -105,8 +105,15 @@
 
     }
 
-    m.on = function(event, callback, parallel) {
-      tasks.push(new AsyncHook(event, callback, parallel));
+    m.on = function(name, listener, parallel) {
+      var listener = new AsyncHook(event, callback, parallel);
+	  tasks.push(listener);
+	  return function() {
+	  	var indexOfListener = tasks.indexOf(listener);
+	  	if (indexOfListener !== -1) {
+	  		tasks[indexOfListener] = null;
+	  	}
+	  }
     }
 
     m.once = function(event, callback, parallel) {
